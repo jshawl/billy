@@ -9,8 +9,8 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div id="header" class="clear">
-		<div id="title">
+	<header id="site-header">
+		<div id="site-title">
 			<?php if ( is_front_page() ) echo( '<h1>' ); ?>
 				<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
 			<?php if ( is_front_page() ) echo( '</h1>' ); ?>
@@ -18,12 +18,11 @@
 		<?php
 			wp_nav_menu(
 				array(
-					'theme_location'  => 'nav-1',
-					'container_id'    => 'navigation',
-					'container_class' => 'clear',
-					'menu_class'      => 'nav',
+					'theme_location'  => 'primary',
+					'container_id'    => 'site-navigation',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s nav">%3$s</ul>',
 					'depth'           => '2'
 					)
 				);
 		?>
-	</div><!--end header-->
+	</header><!--end header-->

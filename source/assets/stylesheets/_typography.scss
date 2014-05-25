@@ -1,5 +1,111 @@
 /* _typography.scss
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-@import "blueprint/typography";
-@include blueprint-typography;
+// Import Compass's Vertical Rhythm goodness
+@import "compass/typography/vertical_rhythm";
+
+// Start a baseline from $base-line-height
+
+@include establish-baseline;
+/// DEV ONLY
+body{
+  @include debug-vertical-alignment();
+}
+/// END DEV
+
+/* Body
+=======================================*/
+html, body{
+  @extend %serif;
+}
+p{
+  margin: rhythm(1) 0;
+  .entry &:first-child{
+    @include adjust-font-size-to(24px);
+  }
+  &.muted{
+    color: $light-gray;
+  }
+}
+a{
+  text-decoration: none;
+  @include link-colors($highlight, $gray);
+  -webkit-transition: color 500ms;
+  transition: color 500ms;
+}
+.amp{
+  font-family: baskerville;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Headings
+=======================================*/
+
+h1,h2,h3,h4,h5,h6{
+  @extend %sans;
+}
+h1,h2,h3{
+  font-weight: 700;
+}
+h4,h5,h6{
+  text-transform: uppercase;
+  & + p{
+    margin-top: 0;
+  }
+}
+
+/* Quotes
+=======================================*/
+blockquote{
+  @extend %sans;
+  font-weight: 100;
+  font-style: italic;
+  @include adjust-font-size-to(24px);
+  padding: 0 rhythm(1);
+  border-left: 1px solid $highlight;
+  p{
+    margin: rhythm(2) 0;
+    margin: 0;
+  }
+}
+
+/* Lists
+=======================================*/
+.nav{
+  list-style:none;
+  margin-left:0;
+  @extend %cf;
+  > li{
+    &,
+    > a{
+      display:inline-block;
+     *display:inline;
+      zoom:1;
+    }
+    a{
+      padding: rhythm(1, 1em);
+    }
+  }
+}
+
+//=======================================*
+//  Placeholders
+//=======================================*
+// These help prevent repetition in the final css.
+// I wrote and article about them a while ago, [here's a brief overview](http://www.nicknoble.io/mixins-and-placeholders/)
+%sans{
+  font-family: $sans-stack;
+}
+%serif{
+  font-family: $serif-stack;
+}
+%weight-300{
+  font-weight: 300;
+}
+%weight-500{
+  font-weight: 500;
+}
+%no-decoration{
+  text-decoration: none;
+}

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	<?php the_post(); ?>
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<div>
+	<article>
 		<a href="<?php echo wp_get_attachment_url( $post->ID ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment">
 			<?php
 				if ( wp_attachment_is_image ( $post->ID ) ) {
@@ -16,17 +16,17 @@
 			?>
 		</a>
 		<?php if ( $post->post_content ) : ?>
-			<div class="description">
+			<section class="description">
 				<?php the_content(); ?>
-			</div>
+			</section>
 		<?php endif; ?>
 		<div class="pagination clear">
 			<div class="alignleft"><?php previous_image_link( 0, __( '&larr; Previous image', 'billy' ) ); ?></div>
 			<div class="alignright"><?php next_image_link( 0, __( 'Next image &rarr;', 'billy' ) ); ?></div>
 		</div>
-		<div>
+		<section>
 			<a href="<?php echo get_permalink( $post->post_parent ); ?>"><?php _e( 'Return to gallery', 'billy' ); ?></a>
-		</div>
-	</div>
+		</section>
+	</article>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

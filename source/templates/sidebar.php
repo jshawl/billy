@@ -1,4 +1,4 @@
-<div id="sidebar">
+<aside id="sidebar">
 	<ul>
 		<?php
 			if ( ! dynamic_sidebar( 'sidebar' ) ) {
@@ -6,4 +6,4 @@
 			}
 		?>
 	</ul>
-</div><!--end sidebar-->
+</aside><!--end sidebar-->

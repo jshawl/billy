@@ -1,7 +1,7 @@
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<div class="post-header">
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<section class="post-header">
 				<h2 class="post-title">
 					<a href="<?php the_permalink(); ?>" rel="bookmark">
 					  <?php the_title(); ?>
@@ -14,15 +14,15 @@
 						<?php the_post_thumbnail(); ?>
 					</a>
 				<?php } ?>
-			</div><!--end post-header-->
-			<div class="entry">
+			</section><!--end post-header-->
+			<section class="entry">
 				<?php the_content( __( 'Read more', 'billy' )); ?>
 				<?php edit_post_link( __( 'Edit this', 'billy' ), '<p>', '</p>' ); ?>
-			</div><!--end entry-->
-			<div class="post-footer">
+			</section><!--end entry-->
+			<section class="post-footer">
 				<p><?php comments_popup_link( __( 'Leave a comment', 'billy' ), __( '1 Comment', 'billy' ), __( '% Comments', 'billy' ) ); ?></p>
-			</div><!--end post-footer-->
-		</div><!--end post-->
+			</section><!--end post-footer-->
+		</article><!--end post-->
 	<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
 		<div class="pagination index">
 			<div class="alignleft">

@@ -1,28 +1,28 @@
 <?php get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h1><?php the_title(); ?></h1>
-				<div>
+				<section>
 					<?php printf( __( 'by %s on', 'billy' ), get_the_author() ); ?> <?php the_date(); ?>
-				</div>
-				<div class="entry">
+				</section>
+				<section class="entry">
 					<?php if ( has_post_thumbnail() ) {
 						the_post_thumbnail();
 					} ?>
 					<?php the_content(); ?>
 					<?php edit_post_link( __( 'Edit this', 'billy' ), '<p>', '</p>' ); ?>
 					<?php wp_link_pages(); ?>
-				</div><!--end entry-->
-				<div class="post-footer clear">
+				</section><!--end entry-->
+				<section class="post-footer">
 					<div class="tags">
 						<?php the_tags( __( 'Tags: ', 'billy' ), ', ', '' ); ?>
 					</div>
 					<div class="cats">
 						<?php printf( __( 'From: %s', 'billy' ), get_the_category_list( ', ' ) ); ?>
 					</div>
-				</div><!--end post footer-->
-			</div><!--end post-->
+				</section><!--end post footer-->
+			</article><!--end post-->
 		<?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
 		<?php comments_template( '', true ); ?>
 	<?php endif; ?>

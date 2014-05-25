@@ -1,0 +1,28 @@
+// Site
+//=====================================*/
+#site-header{
+  text-transform: uppercase;
+  @extend %sans;
+  @extend %cf;
+}
+#site-title{
+  position: fixed;
+  top: rhythm(1.5,1em);
+  left: rhythm(1,1em);
+  font-weight: 900;
+  @include adjust-font-size-to(36px);
+  a{
+    color: inherit;
+  }
+}
+#site-navigation{
+  float: right;
+  font-weight: 500;
+  @include adjust-font-size-to(16px);
+}
+
+// Post
+//=====================================*/
+
+// Portfolio
+//=====================================*/
